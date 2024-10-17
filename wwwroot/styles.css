@@ -1,0 +1,53 @@
+﻿/*
+dark
+#332D27
+brown
+#845C38
+orange
+#D97214
+*/
+* {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.no-dec {
+  text-decoration: none;
+}
+
+nav {
+  background-color: #14b1d8;
+  padding: 10px 0;
+}
+
+.nav-item {
+  display: inline-block;
+  color: #355259;
+  font-size: 24px;
+  padding: 8px 12px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.list {
+  border-collapse: collapse;
+  color: #332D27;
+}
+
+.list th, .list td {
+  border: 1px solid #332D27;
+  padding: 8px 24px;
+  font-size: 16px;
+  color: #332D27;
+}
+
+.list th a, .list td a {
+  color: #332D27;
+}
+.list th a:hover, .list td a:hover {
+  color: #D97214;
+}
