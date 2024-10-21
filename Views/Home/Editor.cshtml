@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Editovat / Přidat";
+}
+@model EditorModel
+
+<form asp-action="SubmitEdit">
+    <input hidden type="number" asp-for="Patient.PatientId" min="0" step="1">
+
+    <label>Jméno</label>
+    <input type="text" asp-for="Patient.FirstName" required>
+
+    <label>Příjmení</label>
+    <input type="text" asp-for="Patient.LastName" required>
+
+    <label>Datum narození</label>
+    <input type="date" asp-for="Patient.BirthDate" required>
+
+    <br />
+
+    @{
+        foreach (var diagnose in Model.Diagnoses)
+        {
+            @Html.CheckBoxFor(EditorModel => EditorModel.Diagnoses[@diagnose.Key].Checked)
+            <label>@diagnose.Value.DiagnoseName</label>
+            <br />
+        }
+    }
+
+    <button type="submit">Odeslat</button>
+</form>

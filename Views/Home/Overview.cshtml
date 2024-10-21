@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Přehled pacientů";
+}
+@model IEnumerable<Patient>
+
+<table class="list">
+    <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Datum narození</th>
+            <th>Věk</th>
+            <th>@Html.ActionLink("+", "Editor", new { id=0 })</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Patient patient in Model)
+            {
+                <tr>
+                    <th>@patient.FirstName</th>
+                    <th>@patient.LastName</th>
+                    <th>@patient.BirthDate</th>
+                    <th>
+                        @(DateTime.Today.Year - patient.BirthDate.Year
+                        - (DateTime.Today.Date < patient.BirthDate.ToDateTime(new()).Date ? 1 : 0))
+                        </th>
+                    <th>
+                        @Html.ActionLink("🖊", "Editor", new { id=patient.PatientId })
+                        @Html.ActionLink("🗑", "Delete", new { id=patient.PatientId })
+                    </th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
