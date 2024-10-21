@@ -46,6 +46,7 @@ main {
 }
 
 .list th a, .list td a {
+  text-decoration: none;
   color: #332D27;
 }
 .list th a:hover, .list td a:hover {
